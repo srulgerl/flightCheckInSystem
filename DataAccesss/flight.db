@@ -1,0 +1,51 @@
+-- ?????????
+CREATE TABLE Flights (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    FlightNumber TEXT NOT NULL,
+    Destination TEXT NOT NULL,
+    DepartureTime DATETIME NOT NULL,
+    Status TEXT NOT NULL, -- CheckingIn, Boarding, Departed, Delayed, Cancelled
+    AircraftType TEXT NOT NULL,
+    TotalSeats INTEGER NOT NULL
+);
+
+-- ????????
+CREATE TABLE Seats (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    FlightId INTEGER NOT NULL,
+    SeatNumber TEXT NOT NULL,
+    IsAvailable BOOLEAN NOT NULL DEFAULT 1,
+    FOREIGN KEY (FlightId) REFERENCES Flights(Id)
+);
+
+-- ?????????
+CREATE TABLE Passengers (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    PassportNumber TEXT NOT NULL UNIQUE,
+    FirstName TEXT NOT NULL,
+    LastName TEXT NOT NULL,
+    Email TEXT,
+    Phone TEXT
+);
+
+-- ????????
+CREATE TABLE Bookings (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    FlightId INTEGER NOT NULL,
+    PassengerId INTEGER NOT NULL,
+    BookingReference TEXT NOT NULL,
+    BookingDate DATETIME NOT NULL,
+    FOREIGN KEY (FlightId) REFERENCES Flights(Id),
+    FOREIGN KEY (PassengerId) REFERENCES Passengers(Id)
+);
+
+-- ???????
+CREATE TABLE CheckIns (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    BookingId INTEGER NOT NULL,
+    SeatId INTEGER NOT NULL,
+    CheckInTime DATETIME NOT NULL,
+    BoardingPassPrinted BOOLEAN NOT NULL DEFAULT 0,
+    FOREIGN KEY (BookingId) REFERENCES Bookings(Id),
+    FOREIGN KEY (SeatId) REFERENCES Seats(Id)
+);

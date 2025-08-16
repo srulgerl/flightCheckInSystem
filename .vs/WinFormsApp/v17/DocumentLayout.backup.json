@@ -1,0 +1,205 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EBB9BF01-0957-4949-8641-3FC856B96C12}|ClassLibrary\\DataAccess.csproj|c:\\users\\saruu\\source\\repos\\winformsapp\\classlibrary\\repositories\\interfaces\\iflightrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EBB9BF01-0957-4949-8641-3FC856B96C12}|ClassLibrary\\DataAccess.csproj|solutionrelative:classlibrary\\repositories\\interfaces\\iflightrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBB9BF01-0957-4949-8641-3FC856B96C12}|ClassLibrary\\DataAccess.csproj|c:\\users\\saruu\\source\\repos\\winformsapp\\classlibrary\\repositories\\flightrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EBB9BF01-0957-4949-8641-3FC856B96C12}|ClassLibrary\\DataAccess.csproj|solutionrelative:classlibrary\\repositories\\flightrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBB9BF01-0957-4949-8641-3FC856B96C12}|ClassLibrary\\DataAccess.csproj|c:\\users\\saruu\\source\\repos\\winformsapp\\classlibrary\\models\\flight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EBB9BF01-0957-4949-8641-3FC856B96C12}|ClassLibrary\\DataAccess.csproj|solutionrelative:classlibrary\\models\\flight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBB9BF01-0957-4949-8641-3FC856B96C12}|ClassLibrary\\DataAccess.csproj|c:\\users\\saruu\\source\\repos\\winformsapp\\classlibrary\\context\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EBB9BF01-0957-4949-8641-3FC856B96C12}|ClassLibrary\\DataAccess.csproj|solutionrelative:classlibrary\\context\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBB9BF01-0957-4949-8641-3FC856B96C12}|ClassLibrary\\DataAccess.csproj|c:\\users\\saruu\\source\\repos\\winformsapp\\classlibrary\\dataaccess.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{EBB9BF01-0957-4949-8641-3FC856B96C12}|ClassLibrary\\DataAccess.csproj|solutionrelative:classlibrary\\dataaccess.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02DC3430-B07D-445F-AD44-461123C4C4D9}|DataAccess\\BusinessLogic.csproj|c:\\users\\saruu\\source\\repos\\winformsapp\\dataaccess\\services\\iflightservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02DC3430-B07D-445F-AD44-461123C4C4D9}|DataAccess\\BusinessLogic.csproj|solutionrelative:dataaccess\\services\\iflightservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02DC3430-B07D-445F-AD44-461123C4C4D9}|DataAccess\\BusinessLogic.csproj|c:\\users\\saruu\\source\\repos\\winformsapp\\dataaccess\\services\\flightservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02DC3430-B07D-445F-AD44-461123C4C4D9}|DataAccess\\BusinessLogic.csproj|solutionrelative:dataaccess\\services\\flightservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02DC3430-B07D-445F-AD44-461123C4C4D9}|DataAccess\\BusinessLogic.csproj|c:\\users\\saruu\\source\\repos\\winformsapp\\dataaccess\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02DC3430-B07D-445F-AD44-461123C4C4D9}|DataAccess\\BusinessLogic.csproj|solutionrelative:dataaccess\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C76F7EB2-B662-49D8-B601-5908850F7549}|App\\App.csproj|C:\\Users\\saruu\\source\\repos\\WinFormsApp\\app\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C76F7EB2-B662-49D8-B601-5908850F7549}|App\\App.csproj|solutionrelative:app\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EBB9BF01-0957-4949-8641-3FC856B96C12}|ClassLibrary\\DataAccess.csproj|c:\\users\\saruu\\source\\repos\\winformsapp\\classlibrary\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EBB9BF01-0957-4949-8641-3FC856B96C12}|ClassLibrary\\DataAccess.csproj|solutionrelative:classlibrary\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 332,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Flight.cs",
+              "DocumentMoniker": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\ClassLibrary\\Models\\Flight.cs",
+              "RelativeDocumentMoniker": "ClassLibrary\\Models\\Flight.cs",
+              "ToolTip": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\ClassLibrary\\Models\\Flight.cs",
+              "RelativeToolTip": "ClassLibrary\\Models\\Flight.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-16T10:44:04.139Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FlightService.cs",
+              "DocumentMoniker": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\DataAccess\\Services\\FlightService.cs",
+              "RelativeDocumentMoniker": "DataAccess\\Services\\FlightService.cs",
+              "ToolTip": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\DataAccess\\Services\\FlightService.cs",
+              "RelativeToolTip": "DataAccess\\Services\\FlightService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T16:46:16.962Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IFlightService.cs",
+              "DocumentMoniker": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\DataAccess\\Services\\IFlightService.cs",
+              "RelativeDocumentMoniker": "DataAccess\\Services\\IFlightService.cs",
+              "ToolTip": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\DataAccess\\Services\\IFlightService.cs",
+              "RelativeToolTip": "DataAccess\\Services\\IFlightService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T16:32:32.14Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\DataAccess\\Class1.cs",
+              "RelativeDocumentMoniker": "DataAccess\\Class1.cs",
+              "ToolTip": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\DataAccess\\Class1.cs",
+              "RelativeToolTip": "DataAccess\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T16:23:48.478Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\ClassLibrary\\Context\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "ClassLibrary\\Context\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\ClassLibrary\\Context\\ApplicationDbContext.cs",
+              "RelativeToolTip": "ClassLibrary\\Context\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T16:34:32.59Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IFlightRepository.cs",
+              "DocumentMoniker": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\ClassLibrary\\Repositories\\Interfaces\\IFlightRepository.cs",
+              "RelativeDocumentMoniker": "ClassLibrary\\Repositories\\Interfaces\\IFlightRepository.cs",
+              "ToolTip": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\ClassLibrary\\Repositories\\Interfaces\\IFlightRepository.cs",
+              "RelativeToolTip": "ClassLibrary\\Repositories\\Interfaces\\IFlightRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T14:12:47.706Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FlightRepository.cs",
+              "DocumentMoniker": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\ClassLibrary\\Repositories\\FlightRepository.cs",
+              "RelativeDocumentMoniker": "ClassLibrary\\Repositories\\FlightRepository.cs",
+              "ToolTip": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\ClassLibrary\\Repositories\\FlightRepository.cs",
+              "RelativeToolTip": "ClassLibrary\\Repositories\\FlightRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T16:35:07.165Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DataAccess.csproj",
+              "DocumentMoniker": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\ClassLibrary\\DataAccess.csproj",
+              "RelativeDocumentMoniker": "ClassLibrary\\DataAccess.csproj",
+              "ToolTip": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\ClassLibrary\\DataAccess.csproj",
+              "RelativeToolTip": "ClassLibrary\\DataAccess.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-08-13T16:33:40.816Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\App\\Form1.cs",
+              "RelativeDocumentMoniker": "App\\Form1.cs",
+              "ToolTip": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\App\\Form1.cs [Design]",
+              "RelativeToolTip": "App\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T16:29:05.867Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\ClassLibrary\\Class1.cs",
+              "RelativeDocumentMoniker": "ClassLibrary\\Class1.cs",
+              "ToolTip": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\ClassLibrary\\Class1.cs",
+              "RelativeToolTip": "ClassLibrary\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T13:51:37.144Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 233,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

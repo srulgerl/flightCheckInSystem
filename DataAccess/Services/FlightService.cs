@@ -1,0 +1,88 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using BusinessLogic.Models;
+using DataAccess.Context;
+using DataAccess.Repositories;
+
+namespace BusinessLogic.Services
+{
+    public class FlightService
+    {
+        private readonly IFlightRepository _repository;
+        private readonly DWConnection _con;
+
+        public FlightService(IFlightRepository repository, DWConnection con)
+        {
+            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+            _con = con ?? throw new ArgumentNullException(nameof(con));
+        }
+
+        public async Task<IEnumerable<Flight>> GetFlights()
+        {
+            try
+            {
+                return await _repository.GetFlights();
+            }
+            catch (Exception ex)
+            {
+                // Optionally log the exception
+                throw;
+            }
+        }
+
+        //public async Task<Flight?> GetFlightByIdAsync(int flightId)
+        //{
+        //    try
+        //    {
+        //        return await _repository.GetFlightByIdAsync(flightId);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Optionally log the exception
+        //        throw;
+        //    }
+        //}
+
+        //public async Task<bool> AddFlightAsync(Flight flight)
+        //{
+        //    try
+        //    {
+        //        return await _repository.AddFlightAsync(flight);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Optionally log the exception
+        //        throw;
+        //    }
+        //}
+
+        //public async Task<bool> UpdateFlightAsync(Flight flight)
+        //{
+        //    try
+        //    {
+        //        return await _repository.UpdateFlightAsync(flight);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Optionally log the exception
+        //        throw;
+        //    }
+        //}
+
+        //public async Task<bool> DeleteFlightAsync(int flightId)
+        //{
+        //    try
+        //    {
+        //        return await _repository.DeleteFlightAsync(flightId);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Optionally log the exception
+        //        throw;
+        //    }
+        
+    }
+}

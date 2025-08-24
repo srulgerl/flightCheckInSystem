@@ -8,4 +8,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccesss\DataAccess.csproj" />
+    <ProjectReference Include="..\DataAccess\BusinessLogic.csproj" />
+  </ItemGroup>
+
 </Project>

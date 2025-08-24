@@ -11,27 +11,21 @@ namespace Server.Controller
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class FlightContoller : ControllerBase
+    public class FlightController : ControllerBase
     {
         private readonly FlightService _flightService;
-        public FlightContoller(FlightService flightService)
+        public FlightController(FlightService flightService)
         {
             _flightService = flightService;
         }
 
-        [HttpGet]
-        [Route("GetFlight")]
-        public IActionResult GetFlight()
+        [HttpGet("list")]
+        public async Task<IActionResult> GetFlights() // Mark method as async
         {
-            try
-            {
-                var flights = _flightService.GetFlights();
-                return Ok(flights);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
-            }
+            var flights = (await _flightService.GetFlights()) // Await the Task<IEnumerable<Flight>>
+                          .Select(f => new { f.FlightId, f.FlightNumber })
+                          .ToList();
+            return Ok(flights);
         }
     }
 }

@@ -13,3 +13,4 @@ C:\Users\saruu\source\repos\WinFormsApp\DataAccess\obj\Debug\net8.0\BusinessLogi
 C:\Users\saruu\source\repos\WinFormsApp\DataAccess\obj\Debug\net8.0\refint\BusinessLogic.dll
 C:\Users\saruu\source\repos\WinFormsApp\DataAccess\obj\Debug\net8.0\BusinessLogic.pdb
 C:\Users\saruu\source\repos\WinFormsApp\DataAccess\obj\Debug\net8.0\ref\BusinessLogic.dll
+C:\Users\saruu\source\repos\WinFormsApp\DataAccess\obj\Debug\net8.0\BusinessLogic.sourcelink.json

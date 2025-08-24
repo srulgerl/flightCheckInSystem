@@ -1,7 +1,38 @@
 ﻿@page "/"
+@using Microsoft.AspNetCore.SignalR.Client
 
-<PageTitle>Home</PageTitle>
+<h3>Flight Information Board</h3>
 
-<h1>Hello, world!</h1>
+<ul>
+    @foreach (var flight in flights)
+    {
+        <li>@flight.FlightNumber - @flight.Status</li>
+    }
+</ul>
 
-Welcome to your new app.
+@code {
+    HubConnection hubConnection;
+    List<FlightInfo> flights = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        hubConnection = new HubConnectionBuilder()
+            .WithUrl("http://localhost:5000/flightHub")
+            .Build();
+
+        hubConnection.On<string, string>("StatusUpdated", (flightNumber, status) =>
+        {
+            var f = flights.FirstOrDefault(x => x.FlightNumber == flightNumber);
+            if (f != null) f.Status = status;
+            StateHasChanged();
+        });
+
+        await hubConnection.StartAsync();
+    }
+
+    public class FlightInfo
+    {
+        public string FlightNumber { get; set; }
+        public string Status { get; set; }
+    }
+}

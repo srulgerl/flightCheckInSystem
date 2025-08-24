@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.Models
+namespace DataAccess.Models
 {
     public class Flight
     {
 
-        public int Id { get; set; }
+        public int FlightId { get; set; }
         public string FlightNumber { get; set; }
         public DateTime DepartureTime { get; set; }
         public DateTime ArrivalTime { get; set; }

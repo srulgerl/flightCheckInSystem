@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BusinessLogic.Models;
+using DataAccess.Models;
 using DataAccess.Context;
 using DataAccess.Repositories;
 
@@ -12,9 +12,9 @@ namespace BusinessLogic.Services
     public class FlightService
     {
         private readonly IFlightRepository _repository;
-        private readonly DWConnection _con;
+        private readonly ApplicationDBContext _con;
 
-        public FlightService(IFlightRepository repository, DWConnection con)
+        public FlightService(IFlightRepository repository, ApplicationDBContext con)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
             _con = con ?? throw new ArgumentNullException(nameof(con));

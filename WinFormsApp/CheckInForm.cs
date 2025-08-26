@@ -158,7 +158,7 @@ namespace WinFormsApp
                 MessageBox.Show("Төлөв сонгоно уу.");
                 return;
             }
-
+            //update check
             string status = Tolow.SelectedItem.ToString();
 
             if (flightNumComboBox.SelectedValue == null)

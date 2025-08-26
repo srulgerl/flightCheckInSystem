@@ -13,11 +13,12 @@ namespace DataAccess.Repositories
             _db = db;
         }
 
-        public List<Reservation> GetReservationsByFlight(int flightId)
+        public async Task<List<Reservation>> GetReservationsByFlight(int flightId) // Fixed return type to Task<List<Reservation>>
         {
-            return _db.Reservations.Where(r => r.FlightId == flightId).ToList();
+            return await _db.Reservations
+                           .Where(r => r.FlightId == flightId)
+                           .ToListAsync();
         }
-
 
         public async Task<Reservation?> GetBySeatAsync(int flightId, string seatNumber)
         {
@@ -31,16 +32,15 @@ namespace DataAccess.Repositories
             await _db.SaveChangesAsync();
         }
 
-        public Reservation? GetReservationByPassenger(int passengerId)
+        public async Task<Reservation?> GetReservationByPassenger(int passengerId)
         {
-            return _db.Reservations.FirstOrDefault(r => r.PassengerId == passengerId);
+            return await _db.Reservations.FirstOrDefaultAsync(r => r.PassengerId == passengerId);
         }
 
-        public Reservation? GetReservationByPassengerAndFlight(int passengerId, int flightId)
+        public async Task<Reservation?> GetReservationByPassengerAndFlight(int passengerId, int flightId)
         {
-            return _db.Reservations
-                      .FirstOrDefault(r => r.PassengerId == passengerId && r.FlightId == flightId);
+            return await _db.Reservations
+                      .FirstOrDefaultAsync(r => r.PassengerId == passengerId && r.FlightId == flightId);
         }
-
     }
 }

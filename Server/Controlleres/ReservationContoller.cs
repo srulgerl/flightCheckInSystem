@@ -53,6 +53,5 @@ namespace Server.Controllers
 
             return Ok(seats);
         }
-
     }
 }

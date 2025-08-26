@@ -77,13 +77,9 @@ namespace WinFormsApp
 
             lblUserInfo.Text = $"Зорчигч: {currentPassenger.Name} ({currentPassenger.PassportNumber})";
 
-            if (!string.IsNullOrEmpty(result.SeatNumber))
-            {
-                selectedSeat = result.SeatNumber;
-                panelSeatConfirm.Visible = true;
-                lblSeatConfirm.Text = $"Сонгосон суудал: {selectedSeat}";
-                await RefreshSeatButtons(flightId);
-            }
+            selectedSeat = result.SeatNumber;
+
+            await RefreshSeatButtons(flightId);
         }
 
 
@@ -203,33 +199,36 @@ namespace WinFormsApp
             if (!resp.IsSuccessStatusCode) return;
 
             var json = await resp.Content.ReadAsStringAsync();
-            var reservedSeats = JsonConvert.DeserializeObject<List<string>>(json);
+            var reservedSeats = JsonConvert.DeserializeObject<List<string>>(json) ?? new List<string>();
 
-            // Form дээрх бүх суудлын товчлууруудыг loop-доно
+            // 1. бүх товчлууруудыг reset хийнэ (сул = цагаан)
             foreach (Control ctrl in panel2.Controls)
             {
-                if (ctrl is Button btn && btn.Text.Length >= 2) // жишээ: "A1", "B2"
+                if (ctrl is Button btn && btn.Text.Length >= 2)
                 {
-                    if (reservedSeats.Contains(btn.Text))
-                    {
-                        btn.Enabled = false;
-                        btn.BackColor = Color.LightGray;
-                    }
-                    else
-                    {
-                        btn.Enabled = true;
-                        btn.BackColor = SystemColors.Control;
-                    }
+                    btn.Enabled = true;
+                    btn.BackColor = SystemColors.Control;
                 }
             }
 
-            // Хэрэв зорчигч аль хэдийн суудал авсан бол тэмдэглэж харуулъя
+            // 2. бүх захиалагдсан суудлыг саарал болгоно
+            foreach (Control ctrl in panel2.Controls)
+            {
+                if (ctrl is Button btn && reservedSeats.Contains(btn.Text))
+                {
+                    btn.Enabled = false;
+                    btn.BackColor = Color.LightGray;
+                }
+            }
+
+            // 3. Хэрэв энэ зорчигч өөрийн суудалтай бол → ногооноор тэмдэглэнэ
             if (!string.IsNullOrEmpty(selectedSeat))
             {
                 var btn = panel2.Controls.OfType<Button>().FirstOrDefault(b => b.Text == selectedSeat);
                 if (btn != null)
                 {
                     btn.BackColor = Color.LightGreen;
+                    btn.Enabled = false; // өөрийн seat-ийг дахиж дарж солихгүй
                 }
             }
         }

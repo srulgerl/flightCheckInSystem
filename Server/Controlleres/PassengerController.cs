@@ -1,4 +1,5 @@
-﻿using BusinessLogic.Services;
+﻿using BusinessLogic.DTOs;
+using BusinessLogic.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Server.Controllers
@@ -24,22 +25,25 @@ namespace Server.Controllers
             return Ok(passengers);
         }
 
-        [HttpGet("{passportNumber}")]
-        public async Task<IActionResult> GetPassengerByPassport(string passportNumber)
+        // GET api/passenger/{flightId}/{passportNumber}
+        [HttpGet("{flightId:int}/{passportNumber}")]
+        public async Task<IActionResult> GetPassengerByPassport(int flightId, string passportNumber)
         {
             var passenger = await _passengerService.GetPassengerByPassport(passportNumber);
             if (passenger == null)
                 return NotFound("Passenger not found");
 
-            var reservation = _reservationService.GetReservationByPassenger(passenger.PassengerId); // Removed 'await' as the method is not asynchronous
+            var reservation = await _reservationService.GetReservationByPassengerAndFlight(passenger.PassengerId, flightId);
 
-            return Ok(new
+            var dto = new PassengerWithSeatDto
             {
-                passenger.PassengerId,
-                passenger.Name,
-                passenger.PassportNumber,
+                PassengerId = passenger.PassengerId,
+                Name = passenger.Name,
+                PassportNumber = passenger.PassportNumber,
                 SeatNumber = reservation?.SeatNumber
-            });
+            };
+
+            return Ok(dto);
         }
 
         [HttpGet("{flightId}/{passportNumber}")]

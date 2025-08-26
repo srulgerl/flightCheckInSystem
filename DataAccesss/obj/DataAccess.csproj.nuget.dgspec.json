@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\DataAccesss\\DataAccess.csproj": {}
+    "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\DataAccesss\\DataAccess.csproj": {}
   },
   "projects": {
-    "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\DataAccesss\\DataAccess.csproj": {
+    "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\DataAccesss\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\DataAccesss\\DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\DataAccesss\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\DataAccesss\\DataAccess.csproj",
-        "packagesPath": "C:\\Users\\saruu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\DataAccesss\\obj\\",
+        "projectPath": "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\DataAccesss\\DataAccess.csproj",
+        "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\DataAccesss\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\saruu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

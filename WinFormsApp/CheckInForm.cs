@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using BusinessLogic.DTOs;
 using System.Drawing.Printing;
+using DataAccess.Models;
 
 namespace WinFormsApp
 {
@@ -145,7 +146,11 @@ namespace WinFormsApp
             lblSeatConfirm.Text = string.Empty;
         }
 
-        // --- Төлөв солих ---
+        // Fix for CS0117: 'Flight' does not contain a definition for 'flight_id'
+        // The issue is that the `Flight` class does not have a property named `flight_id`.
+        // Based on the provided `Flight` class signature, the correct property name is `FlightId`.
+        // Update the code to use `FlightId` instead of `flight_id`.
+
         private async void btnChangeTolow_Click(object sender, EventArgs e)
         {
             if (Tolow.SelectedItem == null)
@@ -156,7 +161,15 @@ namespace WinFormsApp
 
             string status = Tolow.SelectedItem.ToString();
 
-            var resp = await _http.PostAsync($"api/flight/updateStatus?flightId=1&status={status}", null);
+            if (flightNumComboBox.SelectedValue == null)
+            {
+                MessageBox.Show("Эхлээд нислэг сонгоно уу.");
+                return;
+            }
+
+            int flightId = (int)flightNumComboBox.SelectedValue;
+
+            var resp = await _http.PostAsync($"api/flight/updateStatus?flight_id={flightId}", new StringContent(status, Encoding.UTF8, "application/json"));
 
             if (resp.IsSuccessStatusCode)
                 MessageBox.Show("Төлөв шинэчлэгдлээ!");

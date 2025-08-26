@@ -30,7 +30,7 @@ namespace DataAccess.Context
 
             modelBuilder.Entity<Reservation>()
                 .HasOne(r => r.Passenger)
-                .WithMany(p => p.Reservations)
+                .WithMany()
                 .HasForeignKey(r => r.PassengerId);
         }
     }

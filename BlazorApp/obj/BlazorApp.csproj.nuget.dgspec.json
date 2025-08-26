@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\BlazorApp\\BlazorApp.csproj": {}
+    "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\BlazorApp\\BlazorApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\BlazorApp\\BlazorApp.csproj": {
+    "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\BlazorApp\\BlazorApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\BlazorApp\\BlazorApp.csproj",
+        "projectUniqueName": "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\BlazorApp\\BlazorApp.csproj",
         "projectName": "BlazorApp",
-        "projectPath": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\BlazorApp\\BlazorApp.csproj",
-        "packagesPath": "C:\\Users\\saruu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\BlazorApp\\obj\\",
+        "projectPath": "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\BlazorApp\\BlazorApp.csproj",
+        "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\BlazorApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\saruu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -33,8 +33,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\Server\\Server.csproj": {
-                "projectPath": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\Server\\Server.csproj"
+              "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\Server\\Server.csproj": {
+                "projectPath": "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\Server\\Server.csproj"
               }
             }
           }
@@ -99,20 +99,20 @@
         }
       }
     },
-    "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\DataAccesss\\DataAccess.csproj": {
+    "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\DataAccesss\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\DataAccesss\\DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\DataAccesss\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\DataAccesss\\DataAccess.csproj",
-        "packagesPath": "C:\\Users\\saruu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\DataAccesss\\obj\\",
+        "projectPath": "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\DataAccesss\\DataAccess.csproj",
+        "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\DataAccesss\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\saruu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -195,20 +195,20 @@
         }
       }
     },
-    "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\DataAccess\\BusinessLogic.csproj": {
+    "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\DataAccess\\BusinessLogic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\DataAccess\\BusinessLogic.csproj",
+        "projectUniqueName": "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\DataAccess\\BusinessLogic.csproj",
         "projectName": "BusinessLogic",
-        "projectPath": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\DataAccess\\BusinessLogic.csproj",
-        "packagesPath": "C:\\Users\\saruu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\DataAccess\\obj\\",
+        "projectPath": "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\DataAccess\\BusinessLogic.csproj",
+        "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\saruu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -224,8 +224,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\DataAccesss\\DataAccess.csproj": {
-                "projectPath": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\DataAccesss\\DataAccess.csproj"
+              "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\DataAccesss\\DataAccess.csproj": {
+                "projectPath": "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\DataAccesss\\DataAccess.csproj"
               }
             }
           }
@@ -287,20 +287,20 @@
         }
       }
     },
-    "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\Server\\Server.csproj": {
+    "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\Server\\Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\Server\\Server.csproj",
+        "projectUniqueName": "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\Server\\Server.csproj",
         "projectName": "Server",
-        "projectPath": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\Server\\Server.csproj",
-        "packagesPath": "C:\\Users\\saruu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\Server\\obj\\",
+        "projectPath": "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\Server\\Server.csproj",
+        "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\saruu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -316,8 +316,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\DataAccess\\BusinessLogic.csproj": {
-                "projectPath": "C:\\Users\\saruu\\source\\repos\\WinFormsApp\\DataAccess\\BusinessLogic.csproj"
+              "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\DataAccess\\BusinessLogic.csproj": {
+                "projectPath": "C:\\Users\\dell\\Documents\\GitHub\\flightCheckInSystem\\DataAccess\\BusinessLogic.csproj"
               }
             }
           }

@@ -29,12 +29,12 @@ namespace DataAccess.Repositories
         ///// <returns>The added flight.</returns>  
         //Task<Flight> AddFlightAsync(Flight flight);
 
-        ///// <summary>  
-        ///// Updates an existing flight.  
-        ///// </summary>  
-        ///// <param name="flight">The flight to update.</param>  
-        ///// <returns>The updated flight.</returns>  
-        //Task<Flight> UpdateFlightAsync(Flight flight);
+        /// <summary>  
+        /// Updates an existing flight.  
+        /// </summary>  
+        /// <param name="flight">The flight to update.</param>  
+        /// <returns>The updated flight.</returns>  
+        Task<Flight> UpdateFlightAsync(int flight_id);
 
         ///// <summary>  
         ///// Deletes a flight by its ID.  

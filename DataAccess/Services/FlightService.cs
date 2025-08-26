@@ -29,6 +29,7 @@ namespace BusinessLogic.Services
             catch (Exception ex)
             {
                 // Optionally log the exception
+                Console.WriteLine("Error: "+ ex);
                 throw;
             }
         }
@@ -59,18 +60,19 @@ namespace BusinessLogic.Services
         //    }
         //}
 
-        //public async Task<bool> UpdateFlightAsync(Flight flight)
-        //{
-        //    try
-        //    {
-        //        return await _repository.UpdateFlightAsync(flight);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        // Optionally log the exception
-        //        throw;
-        //    }
-        //}
+        public async Task<Flight> UpdateFlightAsync(int flight_id)
+        {
+            try
+            {
+                return await _repository.UpdateFlightAsync(flight_id);
+            }
+            catch (Exception ex)
+            {
+                // Optionally log the exception
+                Console.WriteLine("Error: " + ex);
+                throw; // Ensure the exception is rethrown to maintain the method's contract
+            }
+        }
 
         //public async Task<bool> DeleteFlightAsync(int flightId)
         //{
@@ -83,6 +85,6 @@ namespace BusinessLogic.Services
         //        // Optionally log the exception
         //        throw;
         //    }
-        
+
     }
 }

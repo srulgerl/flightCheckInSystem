@@ -12,9 +12,8 @@ namespace DataAccess.Models
         public string Name { get; set; }
         public string PassportNumber { get; set; }
         public int FlightId { get; set; }
-        public Flight Flight { get; set; }
-
-        public ICollection<Reservation> Reservations { get; set; }
+        
+        //public ICollection<Reservation> Reservations { get; set; }
 
     }
 }

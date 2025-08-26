@@ -29,8 +29,18 @@ namespace DataAccess.Repositories
             return await _db.Flights.FirstOrDefaultAsync(f => f.FlightId == flightId);
         }
 
-        // Хүсвэл дараа нь Add/Update/Delete методуудаа нээж ашиглаж болно.
-
-
+        /// <summary>
+        /// Updates a flight by Id
+        /// </summary>
+        public async Task<Flight> UpdateFlightAsync(int flightId)
+        {
+            var flight = await _db.Flights.FirstOrDefaultAsync(f => f.FlightId == flightId);
+            if (flight != null)
+            {
+                _db.Flights.Update(flight);
+                await _db.SaveChangesAsync();
+            }
+            return flight;
+        }
     }
 }

@@ -42,7 +42,6 @@ namespace WinFormsApp
             label1 = new Label();
             lblUserSearch = new Label();
             LblPasswordNumber = new Label();
-            labelBG4 = new Label();
             passportNumTxtBx = new TextBox();
             btnPassportSearch = new Button();
             btnSeatA1 = new Button();
@@ -72,10 +71,8 @@ namespace WinFormsApp
             LabelSeatsLoc = new Label();
             lblbusinessSeats = new Label();
             lblEngiinSeats = new Label();
-            lblSuudalBatlah = new Label();
             btnSuudalConfirm = new Button();
             lblUserInfo = new Label();
-            btnSuudalCancel = new Button();
             label3 = new Label();
             Tolow = new ComboBox();
             btnChangeTolow = new Button();
@@ -85,11 +82,8 @@ namespace WinFormsApp
             panel1 = new Panel();
             panel2 = new Panel();
             listView1 = new ListView();
-            panelSeatConfirm = new Panel();
-            lblSeatConfirm = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            panelSeatConfirm.SuspendLayout();
             SuspendLayout();
             // 
             // appbar
@@ -139,7 +133,7 @@ namespace WinFormsApp
             // exitBtn
             // 
             exitBtn.Location = new Point(1308, 32);
-            exitBtn.Margin = new Padding(5, 5, 5, 5);
+            exitBtn.Margin = new Padding(5);
             exitBtn.Name = "exitBtn";
             exitBtn.Size = new Size(153, 46);
             exitBtn.TabIndex = 4;
@@ -179,19 +173,10 @@ namespace WinFormsApp
             LblPasswordNumber.TabIndex = 7;
             LblPasswordNumber.Text = "Паспортын дугаар";
             // 
-            // labelBG4
-            // 
-            labelBG4.BackColor = SystemColors.ControlLight;
-            labelBG4.Location = new Point(1172, 142);
-            labelBG4.Margin = new Padding(5, 0, 5, 0);
-            labelBG4.Name = "labelBG4";
-            labelBG4.Size = new Size(462, 483);
-            labelBG4.TabIndex = 9;
-            // 
             // passportNumTxtBx
             // 
             passportNumTxtBx.Location = new Point(15, 237);
-            passportNumTxtBx.Margin = new Padding(5, 5, 5, 5);
+            passportNumTxtBx.Margin = new Padding(5);
             passportNumTxtBx.Name = "passportNumTxtBx";
             passportNumTxtBx.Size = new Size(201, 39);
             passportNumTxtBx.TabIndex = 12;
@@ -199,7 +184,7 @@ namespace WinFormsApp
             // btnPassportSearch
             // 
             btnPassportSearch.Location = new Point(228, 235);
-            btnPassportSearch.Margin = new Padding(5, 5, 5, 5);
+            btnPassportSearch.Margin = new Padding(5);
             btnPassportSearch.Name = "btnPassportSearch";
             btnPassportSearch.Size = new Size(107, 46);
             btnPassportSearch.TabIndex = 13;
@@ -210,7 +195,7 @@ namespace WinFormsApp
             // btnSeatA1
             // 
             btnSeatA1.Location = new Point(114, 56);
-            btnSeatA1.Margin = new Padding(5, 5, 5, 5);
+            btnSeatA1.Margin = new Padding(5);
             btnSeatA1.Name = "btnSeatA1";
             btnSeatA1.Size = new Size(60, 46);
             btnSeatA1.TabIndex = 19;
@@ -221,7 +206,7 @@ namespace WinFormsApp
             // BtnSeatC1
             // 
             BtnSeatC1.Location = new Point(318, 56);
-            BtnSeatC1.Margin = new Padding(5, 5, 5, 5);
+            BtnSeatC1.Margin = new Padding(5);
             BtnSeatC1.Name = "BtnSeatC1";
             BtnSeatC1.Size = new Size(60, 46);
             BtnSeatC1.TabIndex = 20;
@@ -232,7 +217,7 @@ namespace WinFormsApp
             // BtnSeatB2
             // 
             BtnSeatB2.Location = new Point(184, 112);
-            BtnSeatB2.Margin = new Padding(5, 5, 5, 5);
+            BtnSeatB2.Margin = new Padding(5);
             BtnSeatB2.Name = "BtnSeatB2";
             BtnSeatB2.Size = new Size(60, 46);
             BtnSeatB2.TabIndex = 21;
@@ -243,7 +228,7 @@ namespace WinFormsApp
             // BtnSeatA2
             // 
             BtnSeatA2.Location = new Point(114, 112);
-            BtnSeatA2.Margin = new Padding(5, 5, 5, 5);
+            BtnSeatA2.Margin = new Padding(5);
             BtnSeatA2.Name = "BtnSeatA2";
             BtnSeatA2.Size = new Size(60, 46);
             BtnSeatA2.TabIndex = 22;
@@ -254,7 +239,7 @@ namespace WinFormsApp
             // BtnSeatB1
             // 
             BtnSeatB1.Location = new Point(184, 56);
-            BtnSeatB1.Margin = new Padding(5, 5, 5, 5);
+            BtnSeatB1.Margin = new Padding(5);
             BtnSeatB1.Name = "BtnSeatB1";
             BtnSeatB1.Size = new Size(60, 46);
             BtnSeatB1.TabIndex = 23;
@@ -265,7 +250,7 @@ namespace WinFormsApp
             // BtnSeatB4
             // 
             BtnSeatB4.Location = new Point(184, 254);
-            BtnSeatB4.Margin = new Padding(5, 5, 5, 5);
+            BtnSeatB4.Margin = new Padding(5);
             BtnSeatB4.Name = "BtnSeatB4";
             BtnSeatB4.Size = new Size(60, 46);
             BtnSeatB4.TabIndex = 24;
@@ -276,7 +261,7 @@ namespace WinFormsApp
             // BtnSeatA4
             // 
             BtnSeatA4.Location = new Point(114, 254);
-            BtnSeatA4.Margin = new Padding(5, 5, 5, 5);
+            BtnSeatA4.Margin = new Padding(5);
             BtnSeatA4.Name = "BtnSeatA4";
             BtnSeatA4.Size = new Size(60, 46);
             BtnSeatA4.TabIndex = 25;
@@ -287,7 +272,7 @@ namespace WinFormsApp
             // BtnSeatB3
             // 
             BtnSeatB3.Location = new Point(184, 200);
-            BtnSeatB3.Margin = new Padding(5, 5, 5, 5);
+            BtnSeatB3.Margin = new Padding(5);
             BtnSeatB3.Name = "BtnSeatB3";
             BtnSeatB3.Size = new Size(60, 46);
             BtnSeatB3.TabIndex = 26;
@@ -298,7 +283,7 @@ namespace WinFormsApp
             // BtnSeatA3
             // 
             BtnSeatA3.Location = new Point(114, 200);
-            BtnSeatA3.Margin = new Padding(5, 5, 5, 5);
+            BtnSeatA3.Margin = new Padding(5);
             BtnSeatA3.Name = "BtnSeatA3";
             BtnSeatA3.Size = new Size(60, 46);
             BtnSeatA3.TabIndex = 27;
@@ -309,7 +294,7 @@ namespace WinFormsApp
             // BtnSeatD2
             // 
             BtnSeatD2.Location = new Point(388, 112);
-            BtnSeatD2.Margin = new Padding(5, 5, 5, 5);
+            BtnSeatD2.Margin = new Padding(5);
             BtnSeatD2.Name = "BtnSeatD2";
             BtnSeatD2.Size = new Size(60, 46);
             BtnSeatD2.TabIndex = 28;
@@ -320,7 +305,7 @@ namespace WinFormsApp
             // BtnSeatC2
             // 
             BtnSeatC2.Location = new Point(318, 112);
-            BtnSeatC2.Margin = new Padding(5, 5, 5, 5);
+            BtnSeatC2.Margin = new Padding(5);
             BtnSeatC2.Name = "BtnSeatC2";
             BtnSeatC2.Size = new Size(60, 46);
             BtnSeatC2.TabIndex = 29;
@@ -331,7 +316,7 @@ namespace WinFormsApp
             // BtnSeatD1
             // 
             BtnSeatD1.Location = new Point(388, 59);
-            BtnSeatD1.Margin = new Padding(5, 5, 5, 5);
+            BtnSeatD1.Margin = new Padding(5);
             BtnSeatD1.Name = "BtnSeatD1";
             BtnSeatD1.Size = new Size(60, 46);
             BtnSeatD1.TabIndex = 30;
@@ -342,7 +327,7 @@ namespace WinFormsApp
             // BtnSeatB6
             // 
             BtnSeatB6.Location = new Point(184, 366);
-            BtnSeatB6.Margin = new Padding(5, 5, 5, 5);
+            BtnSeatB6.Margin = new Padding(5);
             BtnSeatB6.Name = "BtnSeatB6";
             BtnSeatB6.Size = new Size(60, 46);
             BtnSeatB6.TabIndex = 31;
@@ -353,7 +338,7 @@ namespace WinFormsApp
             // BtnSeatA6
             // 
             BtnSeatA6.Location = new Point(114, 366);
-            BtnSeatA6.Margin = new Padding(5, 5, 5, 5);
+            BtnSeatA6.Margin = new Padding(5);
             BtnSeatA6.Name = "BtnSeatA6";
             BtnSeatA6.Size = new Size(60, 46);
             BtnSeatA6.TabIndex = 32;
@@ -364,7 +349,7 @@ namespace WinFormsApp
             // BtnSeatB5
             // 
             BtnSeatB5.Location = new Point(184, 310);
-            BtnSeatB5.Margin = new Padding(5, 5, 5, 5);
+            BtnSeatB5.Margin = new Padding(5);
             BtnSeatB5.Name = "BtnSeatB5";
             BtnSeatB5.Size = new Size(60, 46);
             BtnSeatB5.TabIndex = 33;
@@ -375,7 +360,7 @@ namespace WinFormsApp
             // BtnSeatA5
             // 
             BtnSeatA5.Location = new Point(114, 310);
-            BtnSeatA5.Margin = new Padding(5, 5, 5, 5);
+            BtnSeatA5.Margin = new Padding(5);
             BtnSeatA5.Name = "BtnSeatA5";
             BtnSeatA5.Size = new Size(60, 46);
             BtnSeatA5.TabIndex = 34;
@@ -386,7 +371,7 @@ namespace WinFormsApp
             // BtnSeatC4
             // 
             BtnSeatC4.Location = new Point(318, 254);
-            BtnSeatC4.Margin = new Padding(5, 5, 5, 5);
+            BtnSeatC4.Margin = new Padding(5);
             BtnSeatC4.Name = "BtnSeatC4";
             BtnSeatC4.Size = new Size(60, 46);
             BtnSeatC4.TabIndex = 35;
@@ -397,7 +382,7 @@ namespace WinFormsApp
             // BtnSeatD4
             // 
             BtnSeatD4.Location = new Point(388, 254);
-            BtnSeatD4.Margin = new Padding(5, 5, 5, 5);
+            BtnSeatD4.Margin = new Padding(5);
             BtnSeatD4.Name = "BtnSeatD4";
             BtnSeatD4.Size = new Size(60, 46);
             BtnSeatD4.TabIndex = 36;
@@ -408,7 +393,7 @@ namespace WinFormsApp
             // BtnSeatD3
             // 
             BtnSeatD3.Location = new Point(388, 200);
-            BtnSeatD3.Margin = new Padding(5, 5, 5, 5);
+            BtnSeatD3.Margin = new Padding(5);
             BtnSeatD3.Name = "BtnSeatD3";
             BtnSeatD3.Size = new Size(60, 46);
             BtnSeatD3.TabIndex = 37;
@@ -419,7 +404,7 @@ namespace WinFormsApp
             // BtnSeatC3
             // 
             BtnSeatC3.Location = new Point(318, 200);
-            BtnSeatC3.Margin = new Padding(5, 5, 5, 5);
+            BtnSeatC3.Margin = new Padding(5);
             BtnSeatC3.Name = "BtnSeatC3";
             BtnSeatC3.Size = new Size(60, 46);
             BtnSeatC3.TabIndex = 38;
@@ -430,7 +415,7 @@ namespace WinFormsApp
             // BtnSeatC6
             // 
             BtnSeatC6.Location = new Point(318, 366);
-            BtnSeatC6.Margin = new Padding(5, 5, 5, 5);
+            BtnSeatC6.Margin = new Padding(5);
             BtnSeatC6.Name = "BtnSeatC6";
             BtnSeatC6.Size = new Size(60, 46);
             BtnSeatC6.TabIndex = 39;
@@ -441,7 +426,7 @@ namespace WinFormsApp
             // BtnSeatC5
             // 
             BtnSeatC5.Location = new Point(318, 310);
-            BtnSeatC5.Margin = new Padding(5, 5, 5, 5);
+            BtnSeatC5.Margin = new Padding(5);
             BtnSeatC5.Name = "BtnSeatC5";
             BtnSeatC5.Size = new Size(60, 46);
             BtnSeatC5.TabIndex = 40;
@@ -452,7 +437,7 @@ namespace WinFormsApp
             // BtnSeatD5
             // 
             BtnSeatD5.Location = new Point(388, 310);
-            BtnSeatD5.Margin = new Padding(5, 5, 5, 5);
+            BtnSeatD5.Margin = new Padding(5);
             BtnSeatD5.Name = "BtnSeatD5";
             BtnSeatD5.Size = new Size(60, 46);
             BtnSeatD5.TabIndex = 41;
@@ -463,7 +448,7 @@ namespace WinFormsApp
             // BtnSeatD6
             // 
             BtnSeatD6.Location = new Point(388, 366);
-            BtnSeatD6.Margin = new Padding(5, 5, 5, 5);
+            BtnSeatD6.Margin = new Padding(5);
             BtnSeatD6.Name = "BtnSeatD6";
             BtnSeatD6.Size = new Size(60, 46);
             BtnSeatD6.TabIndex = 42;
@@ -507,23 +492,11 @@ namespace WinFormsApp
             lblEngiinSeats.TabIndex = 45;
             lblEngiinSeats.Text = "Энгийн";
             // 
-            // lblSuudalBatlah
-            // 
-            lblSuudalBatlah.AutoSize = true;
-            lblSuudalBatlah.BackColor = SystemColors.ControlLight;
-            lblSuudalBatlah.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSuudalBatlah.Location = new Point(1272, 142);
-            lblSuudalBatlah.Margin = new Padding(5, 0, 5, 0);
-            lblSuudalBatlah.Name = "lblSuudalBatlah";
-            lblSuudalBatlah.Size = new Size(289, 32);
-            lblSuudalBatlah.TabIndex = 46;
-            lblSuudalBatlah.Text = "Суудал баталгаажуулах";
-            // 
             // btnSuudalConfirm
             // 
             btnSuudalConfirm.BackColor = SystemColors.InactiveCaption;
-            btnSuudalConfirm.Location = new Point(1196, 557);
-            btnSuudalConfirm.Margin = new Padding(5, 5, 5, 5);
+            btnSuudalConfirm.Location = new Point(395, 605);
+            btnSuudalConfirm.Margin = new Padding(5);
             btnSuudalConfirm.Name = "btnSuudalConfirm";
             btnSuudalConfirm.Size = new Size(218, 46);
             btnSuudalConfirm.TabIndex = 48;
@@ -542,23 +515,11 @@ namespace WinFormsApp
             lblUserInfo.TabIndex = 50;
             lblUserInfo.Text = "Зорчигчийн мэдээлэл";
             // 
-            // btnSuudalCancel
-            // 
-            btnSuudalCancel.BackColor = SystemColors.InactiveCaption;
-            btnSuudalCancel.Location = new Point(1448, 557);
-            btnSuudalCancel.Margin = new Padding(5, 5, 5, 5);
-            btnSuudalCancel.Name = "btnSuudalCancel";
-            btnSuudalCancel.Size = new Size(161, 46);
-            btnSuudalCancel.TabIndex = 52;
-            btnSuudalCancel.Text = "Цуцлах";
-            btnSuudalCancel.UseVisualStyleBackColor = false;
-            btnSuudalCancel.Click += btnSuudalCancel_Click;
-            // 
             // label3
             // 
             label3.BackColor = SystemColors.ControlLight;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(1172, 635);
+            label3.Location = new Point(1171, 142);
             label3.Margin = new Padding(5, 0, 5, 0);
             label3.Name = "label3";
             label3.Size = new Size(462, 146);
@@ -569,8 +530,8 @@ namespace WinFormsApp
             // 
             Tolow.FormattingEnabled = true;
             Tolow.Items.AddRange(new object[] { "Бүртгэж байна", "Онгоцонд сууж байна", "Ниссэн", "Хойшилсон", "Цуцалсан" });
-            Tolow.Location = new Point(1196, 688);
-            Tolow.Margin = new Padding(5, 5, 5, 5);
+            Tolow.Location = new Point(1195, 195);
+            Tolow.Margin = new Padding(5);
             Tolow.Name = "Tolow";
             Tolow.Size = new Size(243, 40);
             Tolow.TabIndex = 54;
@@ -578,8 +539,8 @@ namespace WinFormsApp
             // 
             // btnChangeTolow
             // 
-            btnChangeTolow.Location = new Point(1451, 688);
-            btnChangeTolow.Margin = new Padding(5, 5, 5, 5);
+            btnChangeTolow.Location = new Point(1450, 195);
+            btnChangeTolow.Margin = new Padding(5);
             btnChangeTolow.Name = "btnChangeTolow";
             btnChangeTolow.Size = new Size(153, 46);
             btnChangeTolow.TabIndex = 55;
@@ -592,8 +553,8 @@ namespace WinFormsApp
             btnPrint.BackColor = SystemColors.ActiveCaptionText;
             btnPrint.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPrint.ForeColor = SystemColors.ControlLightLight;
-            btnPrint.Location = new Point(1196, 800);
-            btnPrint.Margin = new Padding(5, 5, 5, 5);
+            btnPrint.Location = new Point(1171, 308);
+            btnPrint.Margin = new Padding(5);
             btnPrint.Name = "btnPrint";
             btnPrint.Size = new Size(408, 122);
             btnPrint.TabIndex = 56;
@@ -624,6 +585,7 @@ namespace WinFormsApp
             panel1.BackColor = SystemColors.ControlLight;
             panel1.Controls.Add(LabelSeatsLoc);
             panel1.Controls.Add(panel2);
+            panel1.Controls.Add(btnSuudalConfirm);
             panel1.Location = new Point(510, 142);
             panel1.Name = "panel1";
             panel1.Size = new Size(653, 779);
@@ -666,39 +628,18 @@ namespace WinFormsApp
             // listView1
             // 
             listView1.Location = new Point(15, 322);
-            listView1.Margin = new Padding(5, 5, 5, 5);
+            listView1.Margin = new Padding(5);
             listView1.Name = "listView1";
             listView1.Size = new Size(436, 279);
             listView1.TabIndex = 60;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.SelectedIndexChanged += listView1_SelectedIndexChanged;
             // 
-            // panelSeatConfirm
-            // 
-            panelSeatConfirm.Controls.Add(lblSeatConfirm);
-            panelSeatConfirm.Location = new Point(1202, 200);
-            panelSeatConfirm.Margin = new Padding(5, 5, 5, 5);
-            panelSeatConfirm.Name = "panelSeatConfirm";
-            panelSeatConfirm.Size = new Size(406, 347);
-            panelSeatConfirm.TabIndex = 61;
-            panelSeatConfirm.Visible = false;
-            panelSeatConfirm.Paint += panelSeatConfirm_Paint;
-            // 
-            // lblSeatConfirm
-            // 
-            lblSeatConfirm.BackColor = SystemColors.ControlLightLight;
-            lblSeatConfirm.Location = new Point(26, 19);
-            lblSeatConfirm.Margin = new Padding(5, 0, 5, 0);
-            lblSeatConfirm.Name = "lblSeatConfirm";
-            lblSeatConfirm.Size = new Size(356, 304);
-            lblSeatConfirm.TabIndex = 0;
-            // 
             // CheckInForm
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1628, 1037);
-            Controls.Add(panelSeatConfirm);
             Controls.Add(listView1);
             Controls.Add(panel1);
             Controls.Add(flightNumComboBox);
@@ -707,13 +648,9 @@ namespace WinFormsApp
             Controls.Add(btnChangeTolow);
             Controls.Add(Tolow);
             Controls.Add(label3);
-            Controls.Add(btnSuudalCancel);
             Controls.Add(lblUserInfo);
-            Controls.Add(btnSuudalConfirm);
-            Controls.Add(lblSuudalBatlah);
             Controls.Add(btnPassportSearch);
             Controls.Add(passportNumTxtBx);
-            Controls.Add(labelBG4);
             Controls.Add(LblPasswordNumber);
             Controls.Add(lblUserSearch);
             Controls.Add(label1);
@@ -722,7 +659,7 @@ namespace WinFormsApp
             Controls.Add(lbldate);
             Controls.Add(lblNislegNumber);
             Controls.Add(appbar);
-            Margin = new Padding(5, 5, 5, 5);
+            Margin = new Padding(5);
             Name = "CheckInForm";
             Text = "CheckInForm";
             Load += CheckInForm_Load;
@@ -730,7 +667,6 @@ namespace WinFormsApp
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            panelSeatConfirm.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -745,7 +681,6 @@ namespace WinFormsApp
         private Label label1;
         private Label lblUserSearch;
         private Label LblPasswordNumber;
-        private Label labelBG4;
         private TextBox passportNumTxtBx;
         private Button btnPassportSearch;
         private Button btnSeatA1;
@@ -775,10 +710,8 @@ namespace WinFormsApp
         private Label LabelSeatsLoc;
         private Label lblbusinessSeats;
         private Label lblEngiinSeats;
-        private Label lblSuudalBatlah;
         private Button btnSuudalConfirm;
         private Label lblUserInfo;
-        private Button btnSuudalCancel;
         private Label label3;
         private ComboBox Tolow;
         private Button btnChangeTolow;
@@ -788,8 +721,6 @@ namespace WinFormsApp
         private Panel panel1;
         private Panel panel2;
         private ListView listView1;
-        private Panel panelSeatConfirm;
-        private Label lblSeatConfirm;
 
     }
 }

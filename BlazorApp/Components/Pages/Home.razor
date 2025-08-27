@@ -1,38 +1,66 @@
 ﻿@page "/"
 @using Microsoft.AspNetCore.SignalR.Client
+@using BusinessLogic.DTOs
 
-<h3>Flight Information Board</h3>
+<h3>✈ Flight Information Board</h3>
 
-<ul>
-    @foreach (var flight in flights)
-    {
-        <li>@flight.FlightNumber - @flight.Status</li>
-    }
-</ul>
+<table class="table" @key="flights">
+    <thead>
+        <tr>
+            <th>Flight</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var flight in flights)
+        {
+            <tr>
+                <td>@flight.FlightNumber</td>
+                <td>@flight.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>
 
 @code {
-    HubConnection hubConnection;
-    List<FlightInfo> flights = new();
+    private HubConnection? hubConnection;
+    private List<FlightDto> flights = new();
 
     protected override async Task OnInitializedAsync()
     {
+        var http = new HttpClient { BaseAddress = new Uri("http://localhost:5000/") };
+
+        // Эхний нислэгийн жагсаалтыг ачаалах
+        flights = await http.GetFromJsonAsync<List<FlightDto>>("api/flight/list") ?? new List<FlightDto>();
+
+        // SignalR холболт
         hubConnection = new HubConnectionBuilder()
             .WithUrl("http://localhost:5000/flightHub")
+            .WithAutomaticReconnect()
             .Build();
+        hubConnection.On<int, string>("FlightStatusUpdated", (flightId, status) =>
+{
+    Console.WriteLine($"⚡ Received: {flightId} = {status}");
 
-        hubConnection.On<string, string>("StatusUpdated", (flightNumber, status) =>
-        {
-            var f = flights.FirstOrDefault(x => x.FlightNumber == flightNumber);
-            if (f != null) f.Status = status;
-            StateHasChanged();
-        });
-
-        await hubConnection.StartAsync();
+    var f = flights.FirstOrDefault(x => x.FlightId == flightId);
+    if (f != null)
+    {
+    f.Status = status;
     }
 
-    public class FlightInfo
+    // UI dispatcher дээрээс render хийлгэх
+    _ = InvokeAsync(() =>
     {
-        public string FlightNumber { get; set; }
-        public string Status { get; set; }
+    Console.WriteLine("🔄 StateHasChanged called from dispatcher");
+    StateHasChanged();
+    });
+}
+
+
+        // Эвент бүртгэх
+       );
+
+        await hubConnection.StartAsync();
+        Console.WriteLine("✅ SignalR connected");
     }
 }

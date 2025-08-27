@@ -32,15 +32,10 @@ namespace DataAccess.Repositories
         /// <summary>
         /// Updates a flight by Id
         /// </summary>
-        public async Task<Flight> UpdateFlightAsync(int flightId)
+        public async Task UpdateFlightAsync(Flight flight)
         {
-            var flight = await _db.Flights.FirstOrDefaultAsync(f => f.FlightId == flightId);
-            if (flight != null)
-            {
-                _db.Flights.Update(flight);
-                await _db.SaveChangesAsync();
-            }
-            return flight;
+            _db.Flights.Update(flight);
+            await _db.SaveChangesAsync();
         }
     }
 }

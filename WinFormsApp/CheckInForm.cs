@@ -252,10 +252,5 @@ namespace WinFormsApp
         private void listView1_SelectedIndexChanged(object sender, EventArgs e) { }
         private void panelSeatConfirm_Paint(object sender, PaintEventArgs e) { }
         private void Tolow_SelectedIndexChanged(object sender, EventArgs e) { }
-
-        private void flightNumComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

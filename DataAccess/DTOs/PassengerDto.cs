@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.DTOs
 {
+    /// <summary>
+    /// Зорчигчийн Data Transfer Object-ийг төлөөлдөг.
+    /// </summary>
     public class PassengerDto
     {
         public int PassengerId { get; set; }

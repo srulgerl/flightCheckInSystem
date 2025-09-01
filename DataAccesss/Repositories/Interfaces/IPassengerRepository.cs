@@ -7,6 +7,12 @@ using DataAccess.Models;
 
 namespace DataAccess.Repositories
 {
+    /// <summary>
+    /// Зорчигчийн мэдээлэлтэй ажиллах repository интерфэйс.
+    /// Энэхүү интерфэйс нь зорчигчдын жагсаалт авах, пасспортын дугаараар хайх,
+    /// пасспорт болон нислэгийн дугаараар зорчигчийн мэдээлэл авах зэрэг функцүүдийг тодорхойлдог.
+    /// </summary>
+
     public interface IPassengerRepository
     {
         Task<IEnumerable<Passenger>> GetPassengersAsync();

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Models
 {
+    /// <summary>
+    /// Зорчигчийн модэл бүхий класс
+    /// </summary>
     public class Passenger
     {
         public int PassengerId { get; set; }

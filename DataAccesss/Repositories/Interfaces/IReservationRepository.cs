@@ -1,7 +1,13 @@
 ﻿using DataAccess.Models;
 
 namespace DataAccess.Repositories
-{
+
+    /// <summary>
+    /// Захиалгын мэдээлэлтэй ажиллах repository интерфэйс.
+    /// Энэ интерфэйс нь тухайн нислэгийн захиалгуудыг авах, суудлын мэдээллээр захиалга хайх,
+    /// шинэ захиалга нэмэх, зорчигчоор болон нислэгээр захиалгын мэдээлэл авах функцүүдийг тодорхойлдог.
+    /// </summary>
+
     public interface IReservationRepository
     {
         Task<List<Reservation>> GetReservationsByFlight(int flightId);

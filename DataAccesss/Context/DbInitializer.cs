@@ -10,6 +10,9 @@ using DataAccess.Models;
 namespace DataAccess.Context {
     public static class DbInitializer
     {
+        ///<summary>
+        ///Өгөгдлийн санд нислэгүүдийн мэдээлэл нэмэх
+        ///</summary>
         public static void Seed(ApplicationDBContext db)
         {
             if (!db.Flights.Any())

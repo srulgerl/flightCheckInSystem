@@ -3,6 +3,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Context
 {
+    /// <summary>
+    /// Энэхүү класс нь нислэг, зорчигч, захиалгын мэдээллийг хадгалах, удирдах зориулалттай өгөгдлийн сангийн контекст юм.
+    /// PassportNumber талбарт давхардалгүй индекс үүсгэж, Reservation нь Flight болон Passenger класстай гадаад түлхүүрээр холбогддог.
+    /// </summary>
     public class ApplicationDBContext : DbContext
     {
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options)
@@ -12,8 +16,6 @@ namespace DataAccess.Context
         public DbSet<Flight> Flights { get; set; }
         public DbSet<Passenger> Passengers { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
-
-
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

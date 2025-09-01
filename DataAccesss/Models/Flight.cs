@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Models
 {
+    /// <summary>
+    /// Нислэгийн модэл бүхий класс
+    /// </summary>
     public class Flight
     {
 

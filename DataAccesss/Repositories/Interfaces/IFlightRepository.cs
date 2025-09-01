@@ -34,7 +34,7 @@ namespace DataAccess.Repositories
         /// </summary>  
         /// <param name="flight">The flight to update.</param>  
         /// <returns>The updated flight.</returns>  
-        Task<Flight> UpdateFlightAsync(int flight_id);
+        Task UpdateFlightAsync(Flight flight);
 
         ///// <summary>  
         ///// Deletes a flight by its ID.  

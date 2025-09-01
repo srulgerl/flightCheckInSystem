@@ -1,23 +1,37 @@
-﻿using System.Net.Sockets;
+﻿using System.Net.Http;
 using System.Text;
+using System.Text.Json;
 
-class Client1
+// === Parallel clients to test seat reservation ===
+class Program
 {
     static async Task Main()
     {
-        using var client = new TcpClient();
-        await client.ConnectAsync("127.0.0.1", 6000);
+        using var client = new HttpClient { BaseAddress = new Uri("http://localhost:5000/") };
 
-        var stream = client.GetStream();
-        var message = "BOOK|FL123|P123456|12A";  // FlightNumber | Passport | Seat
-        var bytes = Encoding.UTF8.GetBytes(message);
+        // FlightId болон SeatNumber тогтмол байна
+        int flightId = 1;
+        string seatNumber = "D2";
 
-        await stream.WriteAsync(bytes, 0, bytes.Length);
+        // 3 зорчигчийн симуляци
+        var tasks = Enumerable.Range(1, 3).Select(async i =>
+        {
+            var reservation = new
+            {
+                flightId = flightId,
+                passengerId = i,       // өөр зорчигч ID (1,2,3 гэж үзсэн)
+                seatNumber = seatNumber
+            };
 
-        var buffer = new byte[1024];
-        var read = await stream.ReadAsync(buffer, 0, buffer.Length);
-        var response = Encoding.UTF8.GetString(buffer, 0, read);
+            var json = JsonSerializer.Serialize(reservation);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-        Console.WriteLine($"Server response: {response}");
+            var response = await client.PostAsync("api/reservation", content);
+            string result = await response.Content.ReadAsStringAsync();
+
+            Console.WriteLine($"Client {i}: {(response.IsSuccessStatusCode ? "✅" : "❌")} {result}");
+        });
+
+        await Task.WhenAll(tasks);
     }
 }

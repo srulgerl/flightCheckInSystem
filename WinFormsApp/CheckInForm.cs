@@ -1,8 +1,4 @@
-﻿using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Text;
 using Newtonsoft.Json;
 using BusinessLogic.DTOs;
 using System.Drawing.Printing;
@@ -14,7 +10,7 @@ namespace WinFormsApp
     {
         private readonly HttpClient _http = new HttpClient
         {
-            BaseAddress = new Uri("http://localhost:5000/") // серверийн API хаяг
+            BaseAddress = new Uri("http://localhost:5000/") 
         };
 
         private PassengerDto? currentPassenger;
@@ -37,8 +33,11 @@ namespace WinFormsApp
             var flights = JsonConvert.DeserializeObject<List<FlightDto>>(json);
 
             flightNumComboBox.DataSource = flights;
-            flightNumComboBox.DisplayMember = "FlightNumber"; // UI дээр FlightNumber харагдана
-            flightNumComboBox.ValueMember = "FlightId";       // Backend руу дамжуулах FlightId
+            flightNumComboBox.DisplayMember = "FlightNumber"; 
+            flightNumComboBox.ValueMember = "FlightId";
+
+            Tolow.Items.Clear();
+            Tolow.Items.AddRange(Enum.GetNames(typeof(FlightStatus)));
         }
 
         // --- EXIT BTN ---
@@ -91,8 +90,6 @@ namespace WinFormsApp
             if (btn == null) return;
 
             selectedSeat = btn.Text;
-            panelSeatConfirm.Visible = true;
-            lblSeatConfirm.Text = $"Сонгосон суудал: {selectedSeat}";
         }
 
         // --- Суудал баталгаажуулах ---
@@ -126,7 +123,6 @@ namespace WinFormsApp
             if (resp.IsSuccessStatusCode)
             {
                 MessageBox.Show($"Суудал {selectedSeat} амжилттай баталгаажлаа!");
-                panelSeatConfirm.Visible = false;
 
                 // суудлын төлөв дахин шинэчлэх
                 await RefreshSeatButtons(flightId);
@@ -138,28 +134,18 @@ namespace WinFormsApp
             }
         }
 
-        // --- Суудал сонголт цуцлах ---
-        private void btnSuudalCancel_Click(object sender, EventArgs e)
-        {
-            selectedSeat = null;
-            panelSeatConfirm.Visible = false;
-            lblSeatConfirm.Text = string.Empty;
-        }
-
-        // Fix for CS0117: 'Flight' does not contain a definition for 'flight_id'
-        // The issue is that the `Flight` class does not have a property named `flight_id`.
-        // Based on the provided `Flight` class signature, the correct property name is `FlightId`.
-        // Update the code to use `FlightId` instead of `flight_id`.
-
         private async void btnChangeTolow_Click(object sender, EventArgs e)
         {
-            if (Tolow.SelectedItem == null)
+        
+
+            // Use null-forgiving operator (!) to suppress the warning, as we already checked for null
+            string status = Tolow.SelectedItem?.ToString() ?? string.Empty;
+
+            if (string.IsNullOrEmpty(status))
             {
                 MessageBox.Show("Төлөв сонгоно уу.");
                 return;
             }
-            //update check
-            string status = Tolow.SelectedItem.ToString();
 
             if (flightNumComboBox.SelectedValue == null)
             {
@@ -167,14 +153,29 @@ namespace WinFormsApp
                 return;
             }
 
-            int flightId = (int)flightNumComboBox.SelectedValue;
+            var selectedFlight = flightNumComboBox.SelectedItem as FlightDto;
+            if (selectedFlight == null)
+            {
+                MessageBox.Show("Эхлээд нислэг сонгоно уу.");
+                return;
+            }
 
-            var resp = await _http.PostAsync($"api/flight/updateStatus?flight_id={flightId}", new StringContent(status, Encoding.UTF8, "application/json"));
+            int flightId = selectedFlight.FlightId;
+
+            var resp = await _http.PostAsync(
+                $"api/flight/updateStatus?flightId={flightId}&status={status}",
+                null
+            );
 
             if (resp.IsSuccessStatusCode)
+            {
                 MessageBox.Show("Төлөв шинэчлэгдлээ!");
+            }
             else
-                MessageBox.Show("Төлөв шинэчлэхэд алдаа гарлаа!");
+            {
+                var error = await resp.Content.ReadAsStringAsync();
+                MessageBox.Show($"Төлөв шинэчлэхэд алдаа: {error}");
+            }
         }
 
         // --- Boarding pass хэвлэх ---

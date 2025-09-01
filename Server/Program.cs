@@ -21,7 +21,17 @@ builder.Services.AddScoped<IFlightRepository, FlightRepository>();
 builder.Services.AddScoped<IPassengerRepository, PassengerRepository>();
 builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins("http://localhost:5000", "https://localhost:7239");
+    });
+});
+
 var app = builder.Build();
+app.UseCors();
+
 
 // REST + SignalR
 app.MapControllers();
@@ -37,4 +47,5 @@ using (var scope = app.Services.CreateScope())
     _ = socketServer.StartAsync(6000); // background thread
 }
 
-app.Run();
+app.Run("http://localhost:5000");
+

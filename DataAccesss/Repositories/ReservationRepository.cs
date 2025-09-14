@@ -4,10 +4,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Repositories
 {
+    /// <summary>
+    /// Захиалгын мэдээлэлтэй ажиллах repository-ийн хэрэгжилт.
+    /// Нислэг, зорчигч, суудлын дугаараар захиалга авах, шинээр захиалга нэмэх зэрэг үйлдлүүдийг агуулна.
+    /// </summary>
     public class ReservationRepository : IReservationRepository
     {
         private readonly ApplicationDBContext _db;
 
+        /// <summary>
+        /// ReservationRepository-ийн шинэ экземплярыг үүсгэх конструктор.
+        /// </summary>
+        /// <param name="db">Өгөгдлийн сангийн контекст</param>
         public ReservationRepository(ApplicationDBContext db)
         {
             _db = db;

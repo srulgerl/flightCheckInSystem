@@ -3,10 +3,17 @@ using DataAccess.Repositories;
 
 namespace BusinessLogic.Services
 {
+    /// <summary>
+    /// Зорчигчийн үйл ажиллагааг удирдах үйлчилгээ.
+    /// </summary>
     public class PassengerService
     {
         private readonly IPassengerRepository _passengerRepository;
 
+        /// <summary>
+        /// Зорчигчийн үйлчилгээний анхны тохиргоо.
+        /// </summary>
+        /// <param name="passengerRepository">Зорчигчийн өгөгдлийн сангийн репозиторийг оруулна.</param>
         public PassengerService(IPassengerRepository passengerRepository)
         {
             _passengerRepository = passengerRepository;
@@ -42,6 +49,5 @@ namespace BusinessLogic.Services
         {
             return _passengerRepository.GetPassengerByPassportAndFlight(passportNumber, flightId);
         }
-
     }
 }

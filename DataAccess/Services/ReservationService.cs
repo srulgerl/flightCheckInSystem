@@ -8,10 +8,17 @@ using DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
 using BusinessLogic.DTOs;
 
+/// <summary>
+/// Захиалгын үйлчилгээний класс. Нислэгийн суудал захиалах, захиалгуудыг авах, зорчигчийн захиалгыг авах зэрэг үйлдлүүдийг гүйцэтгэнэ.
+/// </summary>
 public class ReservationService
 {
     private readonly IReservationRepository _reservationRepository;
 
+    /// <summary>
+    /// Захиалгын репозиторийг дамжуулан үүсгэнэ.
+    /// </summary>
+    /// <param name="reservationRepository">Захиалгын репозиторийн интерфейс</param>
     public ReservationService(IReservationRepository reservationRepository)
     {
         _reservationRepository = reservationRepository;

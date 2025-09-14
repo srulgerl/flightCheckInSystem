@@ -1,0 +1,111 @@
+﻿@page "/"
+@using Microsoft.AspNetCore.SignalR.Client
+@using BusinessLogic.DTOs
+@implements IAsyncDisposable
+@inject NavigationManager Nav
+
+
+<h3>✈ Flight Information Board</h3>
+<p>@connectionStatus</p>
+
+<table class="table">
+    <thead>
+        <tr><th>Flight</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var flight in flights)
+        {
+            <tr @key="flight.FlightId">
+                <td>@flight.FlightNumber</td>
+                <td>@flight.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    private HubConnection? hub;
+    private List<FlightDto> flights = new();
+    private string connectionStatus = "🔄 Connecting...";
+
+    private static readonly string ApiBase = "http://localhost:5000/"; 
+
+    protected override async Task OnInitializedAsync()
+    {
+        var http = new HttpClient { BaseAddress = new Uri(ApiBase) };
+        flights = await http.GetFromJsonAsync<List<FlightDto>>("api/flight/list") ?? new();
+
+        hub = new HubConnectionBuilder()
+            .WithUrl(new Uri(new Uri(ApiBase), "flightHub")) 
+            .WithAutomaticReconnect()
+            .Build();
+
+        hub.On<int, string>("FlightStatusUpdated", async (flightId, status) =>
+        {
+            await InvokeAsync(() =>
+            {
+                var idx = flights.FindIndex(x => x.FlightId == flightId);
+                if (idx >= 0)
+                {
+                    var old = flights[idx];
+                    flights[idx] = new FlightDto
+                        {
+                            FlightId = old.FlightId,
+                            FlightNumber = old.FlightNumber,
+                            Status = status,
+                            FlightName = old.FlightName,
+                            DepartureTime = old.DepartureTime,
+                            ArrivalTime = old.ArrivalTime,
+                            DepartureAirport = old.DepartureAirport,
+                            ArrivalAirport = old.ArrivalAirport
+                        };
+                }
+                StateHasChanged();
+            });
+        });
+
+        try
+        {
+            await hub.StartAsync();
+            connectionStatus = $"✅ Connected ({hub.State})";
+        }
+        catch (Exception ex)
+        {
+            connectionStatus = $"❌ Connect failed: {ex.Message}";
+        }
+
+        await InvokeAsync(StateHasChanged);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) return;
+
+        hub = new HubConnectionBuilder()
+            .WithUrl(new Uri(new Uri(ApiBase), "flightHub"))
+            .WithAutomaticReconnect()
+            .Build();
+
+        hub.On<int, string>("FlightStatusUpdated", async (flightId, status) =>
+        {
+            using var http = new HttpClient { BaseAddress = new Uri(ApiBase) };
+            flights = await http.GetFromJsonAsync<List<FlightDto>>("api/flight/list") ?? new();
+            await InvokeAsync(StateHasChanged);
+        });
+
+        hub.On<int, string>("FlightStatusUpdated", async (_, __) =>
+        {
+            await InvokeAsync(StateHasChanged);
+        });
+
+        await hub.StartAsync();
+        connectionStatus = $"✅ Connected ({hub.State})";
+        await InvokeAsync(StateHasChanged);
+    }
+
+
+    public async ValueTask DisposeAsync()
+    {
+        if (hub is not null) { await hub.DisposeAsync(); hub = null; }
+    }
+}

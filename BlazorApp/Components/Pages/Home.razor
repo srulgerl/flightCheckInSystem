@@ -1,8 +1,11 @@
 ﻿@page "/"
 @using Microsoft.AspNetCore.SignalR.Client
 @using BusinessLogic.DTOs
+@implements IAsyncDisposable
+@inject IJSRuntime JS
 
 <h3>✈ Flight Information Board</h3>
+<p>@connectionStatus</p>
 
 <table class="table" @key="flights">
     <thead>
@@ -25,42 +28,44 @@
 @code {
     private HubConnection? hubConnection;
     private List<FlightDto> flights = new();
+    private string connectionStatus = "🔄 Connecting...";
 
     protected override async Task OnInitializedAsync()
     {
         var http = new HttpClient { BaseAddress = new Uri("http://localhost:5000/") };
+        flights = await http.GetFromJsonAsync<List<FlightDto>>("api/flight/list") ?? new();
 
-        // Эхний нислэгийн жагсаалтыг ачаалах
-        flights = await http.GetFromJsonAsync<List<FlightDto>>("api/flight/list") ?? new List<FlightDto>();
-
-        // SignalR холболт
         hubConnection = new HubConnectionBuilder()
             .WithUrl("http://localhost:5000/flightHub")
             .WithAutomaticReconnect()
             .Build();
-        hubConnection.On<int, string>("FlightStatusUpdated", (flightId, status) =>
-{
-    Console.WriteLine($"⚡ Received: {flightId} = {status}");
 
-    var f = flights.FirstOrDefault(x => x.FlightId == flightId);
-    if (f != null)
-    {
-    f.Status = status;
+        hubConnection.On<int, string>("FlightStatusUpdated", async (flightId, status) =>
+        {
+            Console.WriteLine($"⚡ Received: {flightId} = {status}");
+
+            var f = flights.FirstOrDefault(x => x.FlightId == flightId);
+            if (f != null)
+            {
+                f.Status = status;
+            }
+            await InvokeAsync(StateHasChanged);
+        });
     }
 
-    // UI dispatcher дээрээс render хийлгэх
-    _ = InvokeAsync(() =>
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-    Console.WriteLine("🔄 StateHasChanged called from dispatcher");
-    StateHasChanged();
-    });
-}
+        if (firstRender && hubConnection is not null)
+        {
+            await hubConnection.StartAsync();
+            Console.WriteLine("✅ SignalR connected");
+            await JS.InvokeVoidAsync("console.log", "[Client] Hub connected");
+        }
+    }
 
-
-        // Эвент бүртгэх
-       );
-
-        await hubConnection.StartAsync();
-        Console.WriteLine("✅ SignalR connected");
+    public async ValueTask DisposeAsync()
+    {
+        if (hubConnection is not null)
+            await hubConnection.DisposeAsync();
     }
 }

@@ -569,7 +569,7 @@ namespace WinFormsApp
             userLbl.Name = "userLbl";
             userLbl.Size = new Size(177, 32);
             userLbl.TabIndex = 57;
-            userLbl.Text = "А.Мөнгөнтулга";
+            userLbl.Text = "Ажилтан";
             // 
             // flightNumComboBox
             // 

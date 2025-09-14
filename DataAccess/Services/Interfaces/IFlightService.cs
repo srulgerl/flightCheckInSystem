@@ -1,11 +1,7 @@
-﻿using DataAccess.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BusinessLogic.DTOs;
+using DataAccess.Models;
 
-namespace BusinessLogic.Services
+namespace BusinessLogic.Services.Interfaces
 {
     interface IFlightService
     {
@@ -26,6 +22,6 @@ namespace BusinessLogic.Services
         /// </summary>
         /// <param name="flight">The flight to update.</param>
         /// <returns>The updated flight.</returns>
-        Task<Flight> UpdateFlightAsync(Flight flight);
+        Task<bool> UpdateFlightStatus(ChangeStatusRequest req, CancellationToken ct = default);
     }
 }

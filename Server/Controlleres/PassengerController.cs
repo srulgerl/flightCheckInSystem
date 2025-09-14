@@ -17,7 +17,10 @@ namespace Server.Controllers
             _reservationService = reservationService;
         }
 
-        // GET api/passenger
+        /// <summary>
+        /// Retrieves all passengers.
+        /// </summary>
+        /// <returns>A list of all passengers.</returns>
         [HttpGet]
         public async Task<IActionResult> GetPassengers()
         {
@@ -25,7 +28,12 @@ namespace Server.Controllers
             return Ok(passengers);
         }
 
-        // GET api/passenger/{flightId}/{passportNumber}
+        /// <summary>
+        /// Retrieves a passenger by passport number and flight ID, including seat information if available.
+        /// </summary>
+        /// <param name="flightId">The ID of the flight.</param>
+        /// <param name="passportNumber">The passport number of the passenger.</param>
+        /// <returns>The passenger with seat information if found; otherwise, NotFound.</returns>
         [HttpGet("{flightId:int}/{passportNumber}")]
         public async Task<IActionResult> GetPassengerByPassport(int flightId, string passportNumber)
         {
@@ -45,21 +53,5 @@ namespace Server.Controllers
 
             return Ok(dto);
         }
-
-        [HttpGet("{flightId}/{passportNumber}")]
-        public async Task<IActionResult> GetPassengerByFlightAndPassport(int flightId, string passportNumber)
-        {
-            var passenger = await _passengerService.GetPassengerByPassportAndFlight(passportNumber, flightId);
-            if (passenger == null)
-                return NotFound("Энэ зорчигч энэ нислэгт бүртгэгдээгүй");
-
-            return Ok(new
-            {
-                passenger.PassengerId,
-                passenger.Name,
-                passenger.PassportNumber
-            });
-        }
-
     }
 }

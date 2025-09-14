@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.DTOs
 {
+    /// <summary>
+    /// Data Transfer Object for Passenger
+    /// </summary>
     public class PassengerDto
     {
         public int PassengerId { get; set; }

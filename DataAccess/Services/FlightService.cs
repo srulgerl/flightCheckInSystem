@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DataAccess.Models;
+﻿using DataAccess.Models;
 using DataAccess.Context;
 using DataAccess.Repositories;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.SignalR;
 
 namespace BusinessLogic.Services
 {
@@ -17,7 +10,6 @@ namespace BusinessLogic.Services
     public class FlightService
     {
         private readonly IFlightRepository _repository;
-
 
         /// <summary>
         /// Constructor for FlightService

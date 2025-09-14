@@ -10,6 +10,10 @@ using DataAccess.Models;
 namespace DataAccess.Context {
     public static class DbInitializer
     {
+        /// <summary>
+        /// Seeds initial data into the database if no data exists.
+        /// </summary>
+        /// <param name="db"></param>
         public static void Seed(ApplicationDBContext db)
         {
             if (!db.Flights.Any())

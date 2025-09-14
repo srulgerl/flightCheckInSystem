@@ -22,13 +22,6 @@ namespace DataAccess.Repositories
         /// <returns>The flight with the specified ID.</returns>  
         Task<Flight> GetFlightByIdAsync(int flightId);
 
-        ///// <summary>  
-        ///// Adds a new flight.  
-        ///// </summary>  
-        ///// <param name="flight">The flight to add.</param>  
-        ///// <returns>The added flight.</returns>  
-        //Task<Flight> AddFlightAsync(Flight flight);
-
         /// <summary>  
         /// Updates an existing flight.  
         /// </summary>  
@@ -36,10 +29,5 @@ namespace DataAccess.Repositories
         /// <returns>The updated flight.</returns>  
         Task UpdateFlightAsync(Flight flight);
 
-        ///// <summary>  
-        ///// Deletes a flight by its ID.  
-        ///// </summary>  
-        ///// <param name="flightId">The ID of the flight to delete.</param>  
-        //Task DeleteFlightAsync(int flightId);
     }
 }

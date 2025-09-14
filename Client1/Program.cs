@@ -1,37 +1,60 @@
 ﻿using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
+using BusinessLogic.DTOs; 
 
-// === Parallel clients to test seat reservation ===
 class Program
 {
+    /// <summary>
+    /// Entry point for the client application.
+    /// Fetches passengers and simulates seat reservations for the first three passengers.
+    /// </summary>
+    /// <returns>Task</returns>
     static async Task Main()
     {
         using var client = new HttpClient { BaseAddress = new Uri("http://localhost:5000/") };
 
-        // FlightId болон SeatNumber тогтмол байна
         int flightId = 1;
-        string seatNumber = "D2";
+        string seatNumber = "D4";
 
-        // 3 зорчигчийн симуляци
-        var tasks = Enumerable.Range(1, 3).Select(async i =>
+        // --- Fetch passengers from API ---
+        var passengers = await client.GetFromJsonAsync<List<PassengerDto>>("api/passenger");
+
+        if (passengers == null || passengers.Count < 3)
+        {
+            return;
+        }
+
+        // Simulate reservations for 3 passengers
+        var tasks = passengers.Take(3).Select(p => SendReservation(client, flightId, seatNumber, p.PassengerId));
+
+        await Task.WhenAll(tasks);
+        Console.ReadLine();
+    }
+
+    static async Task SendReservation(HttpClient client, int flightId, string seatNumber, int passengerId)
+    {
+        try
         {
             var reservation = new
             {
-                flightId = flightId,
-                passengerId = i,       // өөр зорчигч ID (1,2,3 гэж үзсэн)
-                seatNumber = seatNumber
+                flightId,
+                passengerId,
+                seatNumber
             };
 
             var json = JsonSerializer.Serialize(reservation);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            using var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             var response = await client.PostAsync("api/reservation", content);
             string result = await response.Content.ReadAsStringAsync();
 
-            Console.WriteLine($"Client {i}: {(response.IsSuccessStatusCode ? "✅" : "❌")} {result}");
-        });
-
-        await Task.WhenAll(tasks);
+            Console.WriteLine($"Passenger {passengerId}: {(response.IsSuccessStatusCode ? "✅" : "❌")} {result}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Passenger {passengerId}: ❌ Exception {ex.Message}");
+        }
     }
 }

@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Models
 {
+    /// <summary>
+    /// Represents a flight entity
+    /// </summary>
     public class Flight
     {
-
         public int FlightId { get; set; }
         public string FlightNumber { get; set; }
         public DateTime DepartureTime { get; set; }
@@ -18,6 +20,10 @@ namespace DataAccess.Models
         public FlightStatus Status { get; set; } 
 
     }
+
+    /// <summary>
+    /// Represents the status of a flight.
+    /// </summary>
     public enum FlightStatus { CheckingIn, Boarding, Departed, Delayed, Canceled }
 
 }

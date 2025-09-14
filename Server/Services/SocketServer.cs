@@ -4,50 +4,79 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccess.Context;
 
+/// <summary>
+/// 
+/// </summary>
 public class SocketServer
 {
     private readonly ApplicationDBContext _db;
+    private TcpListener? _listener;
 
     public SocketServer(ApplicationDBContext db)
     {
         _db = db;
     }
 
-    public async Task StartAsync(int port)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="port"></param>
+    /// <param name="ct"></param>
+    /// <returns></returns>
+    public async Task StartAsync(int port, CancellationToken ct = default)
     {
-        var listener = new TcpListener(IPAddress.Any, port);
-        listener.Start();
-        Console.WriteLine($"[SocketServer] Listening on port {port}...");
+        _listener = new TcpListener(IPAddress.Any, port);
+        _listener.Start();
+        Console.WriteLine($"[SocketServer] Listening on port {port}");
 
-        while (true)
+        try
         {
-            var client = await listener.AcceptTcpClientAsync();
-            _ = HandleClientAsync(client);
+            while (!ct.IsCancellationRequested)
+            {
+                if (_listener.Pending())
+                {
+                    var client = await _listener.AcceptTcpClientAsync(ct);
+                    _ = HandleClientAsync(client, ct);
+                }
+                else
+                {
+                    // Reduce CPU usage
+                    await Task.Delay(100, ct);
+                }
+            }
+        }
+        catch (OperationCanceledException)
+        {
+            Console.WriteLine("[SocketServer] Stopping...");
+        }
+        finally
+        {
+            _listener.Stop();
         }
     }
 
-    private async Task HandleClientAsync(TcpClient client)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="client"></param>
+    /// <param name="ct"></param>
+    /// <returns></returns>
+    private async Task HandleClientAsync(TcpClient client, CancellationToken ct)
     {
-        Console.WriteLine("[SocketServer] New client connected!");
-        using var stream = client.GetStream();
+        using var c = client;
+        using var ns = c.GetStream();
 
-        byte[] buffer = new byte[1024];
-        int bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);
-        string request = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+        var buffer = new byte[1024];
+        while (!ct.IsCancellationRequested)
+        {
+            int read = await ns.ReadAsync(buffer.AsMemory(0, buffer.Length), ct);
+            if (read <= 0) break;
 
-        Console.WriteLine($"[SocketServer] Received: {request}");
+            string msg = Encoding.UTF8.GetString(buffer, 0, read);
+            Console.WriteLine($"[SocketServer] Received: {msg}");
 
-        // Жишээ логик: зорчигч хайх
-        string response;
-        var passenger = _db.Passengers.FirstOrDefault(p => p.PassportNumber == request);
-        if (passenger != null)
-            response = $"PASSENGER_FOUND:{passenger.Name}";
-        else
-            response = "PASSENGER_NOT_FOUND";
-
-        byte[] responseBytes = Encoding.UTF8.GetBytes(response);
-        await stream.WriteAsync(responseBytes, 0, responseBytes.Length);
-
-        client.Close();
+            byte[] response = Encoding.UTF8.GetBytes("ACK\n");
+            await ns.WriteAsync(response.AsMemory(0, response.Length), ct);
+        }
     }
 }

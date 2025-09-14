@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace BusinessLogic.DTOs
 {
+    /// <summary>
+    /// Data Transfer Object for Flight information
+    /// </summary>
     public class FlightDto
     {
         public required string FlightNumber { get; set; }

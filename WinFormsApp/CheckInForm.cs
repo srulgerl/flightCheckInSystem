@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using BusinessLogic.DTOs;
 using System.Drawing.Printing;
 using DataAccess.Models;
+using System.Net.Http.Json;
 
 namespace WinFormsApp
 {
@@ -10,7 +11,7 @@ namespace WinFormsApp
     {
         private readonly HttpClient _http = new HttpClient
         {
-            BaseAddress = new Uri("http://localhost:5000/") 
+            BaseAddress = new Uri("http://localhost:5000/")
         };
 
         private PassengerDto? currentPassenger;
@@ -133,49 +134,37 @@ namespace WinFormsApp
                 MessageBox.Show($"Алдаа: {err}");
             }
         }
-
         private async void btnChangeTolow_Click(object sender, EventArgs e)
         {
-        
+            // btnChangeTolow_Click дотор:
+            if (flightNumComboBox.SelectedValue == null) { MessageBox.Show("Эхлээд нислэгээ сонгоно уу."); return; }
+            if (Tolow.SelectedItem == null) { MessageBox.Show("Шинэ төлөв сонгоно уу."); return; }
 
-            // Use null-forgiving operator (!) to suppress the warning, as we already checked for null
-            string status = Tolow.SelectedItem?.ToString() ?? string.Empty;
+            int flightId = (int)flightNumComboBox.SelectedValue;
+            string statusName = Tolow.SelectedItem.ToString(); // ж: "Boarding", "Delayed" гэх мэт НЭР
 
-            if (string.IsNullOrEmpty(status))
+            var payload = new { FlightId = flightId, Status = statusName }; // enum НЭР
+
+            try
             {
-                MessageBox.Show("Төлөв сонгоно уу.");
-                return;
+                // 1) route-оо updatestatus болгосон!
+                var resp = await _http.PutAsJsonAsync("api/flight/status", payload);
+
+                if (resp.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("Нислэгийн төлөв амжилттай солигдлоо.");
+                    return;
+                }
+
+                // Амжилтгүй бол — статус кодыг нь харуул
+                var err = await resp.Content.ReadAsStringAsync();
+                MessageBox.Show($"Алдаа ({(int)resp.StatusCode} {resp.StatusCode}): {err}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Холболтын алдаа: " + ex.Message);
             }
 
-            if (flightNumComboBox.SelectedValue == null)
-            {
-                MessageBox.Show("Эхлээд нислэг сонгоно уу.");
-                return;
-            }
-
-            var selectedFlight = flightNumComboBox.SelectedItem as FlightDto;
-            if (selectedFlight == null)
-            {
-                MessageBox.Show("Эхлээд нислэг сонгоно уу.");
-                return;
-            }
-
-            int flightId = selectedFlight.FlightId;
-
-            var resp = await _http.PostAsync(
-                $"api/flight/updateStatus?flightId={flightId}&status={status}",
-                null
-            );
-
-            if (resp.IsSuccessStatusCode)
-            {
-                MessageBox.Show("Төлөв шинэчлэгдлээ!");
-            }
-            else
-            {
-                var error = await resp.Content.ReadAsStringAsync();
-                MessageBox.Show($"Төлөв шинэчлэхэд алдаа: {error}");
-            }
         }
 
         // --- Boarding pass хэвлэх ---
@@ -215,7 +204,6 @@ namespace WinFormsApp
             var json = await resp.Content.ReadAsStringAsync();
             var reservedSeats = JsonConvert.DeserializeObject<List<string>>(json) ?? new List<string>();
 
-            // 1. бүх товчлууруудыг reset хийнэ (сул = цагаан)
             foreach (Control ctrl in panel2.Controls)
             {
                 if (ctrl is Button btn && btn.Text.Length >= 2)
@@ -225,7 +213,6 @@ namespace WinFormsApp
                 }
             }
 
-            // 2. бүх захиалагдсан суудлыг саарал болгоно
             foreach (Control ctrl in panel2.Controls)
             {
                 if (ctrl is Button btn && reservedSeats.Contains(btn.Text))
@@ -235,14 +222,13 @@ namespace WinFormsApp
                 }
             }
 
-            // 3. Хэрэв энэ зорчигч өөрийн суудалтай бол → ногооноор тэмдэглэнэ
             if (!string.IsNullOrEmpty(selectedSeat))
             {
                 var btn = panel2.Controls.OfType<Button>().FirstOrDefault(b => b.Text == selectedSeat);
                 if (btn != null)
                 {
                     btn.BackColor = Color.LightGreen;
-                    btn.Enabled = false; // өөрийн seat-ийг дахиж дарж солихгүй
+                    btn.Enabled = false; 
                 }
             }
         }

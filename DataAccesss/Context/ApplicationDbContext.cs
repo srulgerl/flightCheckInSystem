@@ -14,7 +14,6 @@ namespace DataAccess.Context
         public DbSet<Reservation> Reservations { get; set; }
 
 
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Unique constraint for Passport
@@ -22,16 +21,18 @@ namespace DataAccess.Context
                 .HasIndex(p => p.PassportNumber)
                 .IsUnique();
 
+            // Reservation: FlightId + SeatNumber unique constraint
+            modelBuilder.Entity<Reservation>()
+                .HasIndex(r => new { r.FlightId, r.SeatNumber })
+                .IsUnique();
+
             // Reservation relations
             modelBuilder.Entity<Reservation>()
                 .HasOne(r => r.Flight)
                 .WithMany()
-                .HasForeignKey(r => r.FlightId);
-
-            modelBuilder.Entity<Reservation>()
-                .HasOne(r => r.Passenger)
-                .WithMany()
+                .HasForeignKey(r => r.FlightId)
                 .HasForeignKey(r => r.PassengerId);
+                
         }
     }
 }
